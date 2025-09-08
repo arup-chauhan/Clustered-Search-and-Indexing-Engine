@@ -26,3 +26,7 @@ replay_pid*
 #
 README_origin.md
 .env
+
+.DS_Store
+
+helm/.DS_Store
