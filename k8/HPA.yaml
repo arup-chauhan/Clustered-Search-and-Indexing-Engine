@@ -1,0 +1,28 @@
+# TO:DO - Cloud Deployment Autoscaling
+# ------------------------------------
+# Add Horizontal Pod Autoscaler (HPA) when moving to a
+# production cluster (EKS/GKE/AKS). This will allow the
+# clustered-engine deployment to scale based on CPU/memory
+# utilization under real traffic.
+#
+# Not required for Minikube/local development.
+#
+# Example:
+# apiVersion: autoscaling/v2
+# kind: HorizontalPodAutoscaler
+# metadata:
+#   name: clustered-engine-hpa
+# spec:
+#   scaleTargetRef:
+#     apiVersion: apps/v1
+#     kind: Deployment
+#     name: clustered-engine
+#   minReplicas: ${ENGINE_MIN_REPLICAS}
+#   maxReplicas: ${ENGINE_MAX_REPLICAS}
+#   metrics:
+#     - type: Resource
+#       resource:
+#         name: cpu
+#         target:
+#           type: Utilization
+#           averageUtilization: ${ENGINE_CPU_THRESHOLD}

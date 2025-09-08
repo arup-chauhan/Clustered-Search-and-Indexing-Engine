@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clustered-engine
+spec:
+  replicas: ${ENGINE_REPLICAS}
+  selector:
+    matchLabels:
+      app: clustered-engine
+  template:
+    metadata:
+      labels:
+        app: clustered-engine
+    spec:
+      containers:
+        - name: clustered-engine
+          image: "${ENGINE_IMAGE}"
+          ports:
+            - containerPort: ${HTTP_PORT}
+            - containerPort: ${GRPC_PORT}
+          envFrom:
+            - configMapRef:
+                name: engine-config
+            - secretRef:
+                name: engine-secret
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: clustered-engine-svc
+spec:
+  selector:
+    app: clustered-engine
+  ports:
+    - name: http
+      port: ${HTTP_PORT}
+      targetPort: ${HTTP_PORT}
+    - name: grpc
+      port: ${GRPC_PORT}
+      targetPort: ${GRPC_PORT}
+  type: ClusterIP

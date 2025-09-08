@@ -1,0 +1,55 @@
+openapi: 3.0.3
+info:
+title: Clustered Search API
+version: 0.1.0
+paths:
+/api/auth/token:
+post:
+requestBody:
+required: true
+content:
+application/json:
+schema:
+type: object
+properties:
+username: { type: string }
+required: [username]
+responses:
+'200': { description: OK }
+/api/index:
+post:
+security: [{ bearerAuth: [] }]
+requestBody:
+required: true
+content:
+application/json:
+schema:
+type: object
+properties:
+title: { type: string }
+content: { type: string }
+tags: { type: array, items: { type: string } }
+required: [title, content]
+responses:
+'200': { description: Indexed }
+/api/search:
+get:
+parameters:
+  - in: query
+name: q
+required: true
+schema: { type: string }
+  - in: query
+name: size
+schema: { type: integer, default: 10 }
+  - in: query
+name: offset
+schema: { type: integer, default: 0 }
+responses:
+'200': { description: Results }
+components:
+securitySchemes:
+bearerAuth:
+type: http
+scheme: bearer
+bearerFormat: JWT

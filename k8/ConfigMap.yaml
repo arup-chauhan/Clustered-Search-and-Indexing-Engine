@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: engine-config
+data:
+  SPRING_DATASOURCE_URL: "${POSTGRES_URL}"
+  REDIS_HOST: "${REDIS_HOST}"

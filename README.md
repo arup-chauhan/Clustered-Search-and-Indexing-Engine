@@ -326,7 +326,7 @@ curl http://localhost:8080/health
 For Kubernetes:
 
 ```bash
-kubectl apply -f k8s/deployment.yaml
+kubectl apply -f k8s/Deployment.yaml
 ```
 
 ---
