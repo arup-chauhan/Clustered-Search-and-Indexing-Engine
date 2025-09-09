@@ -1,3 +1,0 @@
--- Optional seed data for development.
--- This file is run automatically by Spring Boot after schema.sql.
--- Use it to preload sample documents, tags, or test users.

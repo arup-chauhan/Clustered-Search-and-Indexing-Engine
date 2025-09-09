@@ -1,3 +1,0 @@
--- Optional schema initializer.
--- Useful if you want Spring Boot to auto-create tables without Flyway.
--- For production, prefer Flyway migrations (see db/migration/V1__init.sql).

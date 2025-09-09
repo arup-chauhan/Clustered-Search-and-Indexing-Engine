@@ -1,8 +1,0 @@
-spring:
-datasource:
-url: jdbc:postgresql://localhost:5432/engine
-username: engine
-password: engine
-jpa:
-hibernate:
-ddl-auto: none
