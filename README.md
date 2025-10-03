@@ -1,6 +1,6 @@
 # **Clustered Search & Indexing Engine**
 
-A high-performance system for **distributed text ingestion, indexing, and search**, powered by **Lucene** and **Spark** — *not just yet another search app*.
+A high-performance system for **distributed text ingestion, indexing, and search**, powered by **Lucene** and **Spark** *not just yet another search app*.
 
 ---
 
